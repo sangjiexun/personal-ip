@@ -1,0 +1,8 @@
+# WorkBuddy 项目元数据（不发布）
+.workbuddy/
+
+# 构建脚本与本地测试
+_build/
+_test_theme.js
+*.pyc
+__pycache__/

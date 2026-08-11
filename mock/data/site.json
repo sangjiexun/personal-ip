@@ -1,0 +1,45 @@
+{
+  "site": {
+    "name": "sangjiexun",
+    "tagline": "developer · hacker · lifelong learner",
+    "description": "sangjiexun 的个人 IP 站 —— 开发者、极客、创作者。双主题（黑客 / 网红）可切换，纯静态 + Mock.js 数据后台。",
+    "logo": "",
+    "copyright": "© 2026 sangjiexun · 个人 IP 站 · 静态演示版",
+    "postsPerPage": 9,
+    "social": [
+      {"name": "GitHub", "icon": "github", "url": "https://github.com/sangjiexun"},
+      {"name": "微博", "icon": "weibo", "url": "https://weibo.com/"},
+      {"name": "知乎", "icon": "comment", "url": "https://www.zhihu.com/people/"},
+      {"name": "微信", "icon": "wechat", "url": "#"}
+    ],
+    "contact": {
+      "email": "hi@sangjiexun.dev",
+      "city": "中国",
+      "wechat": "sangjiexun"
+    },
+    "themes": {
+      "default": "hacker",
+      "hacker": {
+        "tagline": "developer · hacker · lifelong learner",
+        "prompt": "sangjiexun@ip:~$",
+        "accent": "#39ff14"
+      },
+      "influencer": {
+        "tagline": "创作者 · 生活方式 · 个人品牌",
+        "accent": "#e8506e"
+      }
+    }
+  },
+  "menu": [
+    {"title": "首页", "url": "index.html"},
+    {"title": "文章", "url": "category.html"},
+    {"title": "关于", "url": "about.html"}
+  ],
+  "author": {
+    "id": 1,
+    "name": "sangjiexun",
+    "slug": "sangjiexun",
+    "avatar": "",
+    "bio": "开发者 / 安全极客 / 终身学习者。喜欢把复杂系统拆成可运行的小模块，也喜欢把生活过成可分享的内容。这个站是我个人的 IP 实验田——黑客主题写技术，网红主题写生活。"
+  }
+}
