@@ -51,6 +51,157 @@
 }
 
 /* ============================================================
+   黑客主题专属增强
+   ============================================================ */
+
+/* Hero 扫描线（CRT 效果） */
+[data-theme="hacker"] #hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.16) 3px,
+    rgba(0, 0, 0, 0.16) 4px
+  );
+}
+
+/* Hero 标题终端绿 */
+[data-theme="hacker"] .hero-title {
+  text-shadow: 0 0 18px rgba(57, 255, 20, 0.25);
+}
+
+/* Hero 按钮终端风 */
+[data-theme="hacker"] .hero-btn {
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary) !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 12px 26px;
+  transition: all .2s;
+}
+[data-theme="hacker"] .hero-btn:hover {
+  background: var(--primary);
+  color: #0a0e14 !important;
+  box-shadow: var(--glow);
+  transform: translateY(-2px);
+}
+
+/* 终端式页脚 */
+[data-theme="hacker"] #footer::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+}
+
+/* 文章卡片 terminal 卡角（悬停出现） */
+[data-theme="hacker"] .post { position: relative; }
+[data-theme="hacker"] .post::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 26px; height: 26px;
+  border-top: 2px solid var(--primary);
+  border-right: 2px solid var(--primary);
+  opacity: 0;
+  transition: opacity .25s;
+}
+[data-theme="hacker"] .post:hover::after { opacity: 1; }
+
+/* 分类条链接终端下划线 */
+[data-theme="hacker"] #category-bar a {
+  position: relative;
+}
+[data-theme="hacker"] #category-bar a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 1px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform .25s;
+}
+[data-theme="hacker"] #category-bar a:hover::after { transform: scaleX(1); }
+
+/* 品牌名终端绿发光 */
+[data-theme="hacker"] .site-branding .brand-text {
+  text-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
+}
+
+/* 关于页头像黑客光环（呼吸动画） */
+[data-theme="hacker"] .about-avatar {
+  box-shadow: 0 0 0 4px rgba(57, 255, 20, 0.15);
+  animation: hackerPulse 3s ease-in-out infinite;
+}
+@keyframes hackerPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(57, 255, 20, 0.12); }
+  50% { box-shadow: 0 0 0 10px rgba(57, 255, 20, 0.22); }
+}
+
+/* ============================================================
+   网红主题专属增强（[data-theme=influencer]）
+   ============================================================ */
+
+/* Hero 粉色渐变叠层 */
+[data-theme="influencer"] #hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(232, 80, 110, 0.28), transparent 55%);
+}
+
+/* Hero 按钮圆润粉 */
+[data-theme="influencer"] .hero-btn {
+  border-radius: 24px;
+  background: linear-gradient(135deg, #e8506e, #f07aa0);
+  box-shadow: 0 4px 14px rgba(232, 80, 110, 0.35);
+}
+[data-theme="influencer"] .hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 80, 110, 0.45);
+}
+
+/* 文章卡片 hover 粉色辉光 */
+[data-theme="influencer"] .post:hover {
+  box-shadow: 0 10px 32px rgba(232, 80, 110, 0.14);
+}
+
+/* 网红分类标签胶囊化 */
+[data-theme="influencer"] .category-label {
+  border-radius: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* 网红主题切换器胶囊高亮 */
+[data-theme="influencer"] .theme-switch button.active {
+  background: linear-gradient(135deg, #e8506e, #f07aa0);
+  box-shadow: 0 2px 10px rgba(232, 80, 110, 0.4);
+}
+
+/* 关于页头像网红光环 */
+[data-theme="influencer"] .about-avatar {
+  box-shadow: 0 0 0 6px rgba(232, 80, 110, 0.12);
+}
+
+/* 页脚品牌色点缀 */
+[data-theme="influencer"] #footer::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, #e8506e, #f07aa0, transparent);
+}
+
+/* ============================================================
    主题切换器（通用 UI，所有主题可见）
    ============================================================ */
 .theme-switch {

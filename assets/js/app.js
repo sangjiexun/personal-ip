@@ -164,9 +164,10 @@
           '<ul class="footer-links">' + friendHtml + '</ul></div></div>' +
         '<div class="col-md-4"><div class="widget"><h3 class="widget-title">联系方式</h3>' +
           '<ul class="footer-contact">' +
-            '<li><i class="fa fa-envelope"></i> ' + esc(s.contact.email) + '</li>' +
+            '<li><i class="fa fa-envelope"></i> <a href="mailto:' + esc(s.contact.email) + '">' + esc(s.contact.email) + '</a></li>' +
             '<li><i class="fa fa-map-marker"></i> ' + esc(s.contact.city) + '</li>' +
             '<li><i class="fa fa-weixin"></i> 微信：' + esc(s.contact.wechat) + '</li>' +
+            '<li><i class="fa fa-qq"></i> QQ：' + esc(s.contact.qq || '') + '</li>' +
           '</ul></div></div>' +
       '</div><div class="footer-copyright">' + esc(s.copyright) + '</div></div>';
   }
@@ -419,9 +420,10 @@
           '<div class="about-name">' + esc(a.name || site.site.name) + '</div>' +
           '<div class="about-bio">' + esc(a.bio || site.site.description) + '</div>' +
           '<div class="about-meta">' +
-            '<span><i class="fa fa-envelope"></i> ' + esc(site.site.contact.email) + '</span>' +
+            '<span><i class="fa fa-envelope"></i> <a href="mailto:' + esc(site.site.contact.email) + '">' + esc(site.site.contact.email) + '</a></span>' +
             '<span><i class="fa fa-map-marker"></i> ' + esc(site.site.contact.city) + '</span>' +
             '<span><i class="fa fa-weixin"></i> 微信：' + esc(site.site.contact.wechat) + '</span>' +
+            '<span><i class="fa fa-qq"></i> QQ：' + esc(site.site.contact.qq || '') + '</span>' +
           '</div>' +
           '<div class="footer-social">' + socialHtml + '</div></div>';
       return renderSidebar();
@@ -441,5 +443,15 @@
 
   global.App = { route: route, setTheme: applyTheme };
   document.addEventListener('DOMContentLoaded', route);
+
+  // 吸顶 header：滚动超过 8px 加 sticky 类（毛玻璃）
+  function onScroll() {
+    var h = document.querySelector('#header');
+    if (!h) return;
+    if (window.scrollY > 8) h.classList.add('sticky');
+    else h.classList.remove('sticky');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
 })(window);

@@ -13,9 +13,10 @@
       {"name": "微信", "icon": "wechat", "url": "#"}
     ],
     "contact": {
-      "email": "hi@sangjiexun.dev",
+      "email": "sangjiexun@gmail.com",
       "city": "中国",
-      "wechat": "sangjiexun"
+      "wechat": "clawgeek",
+      "qq": "1009900122"
     },
     "themes": {
       "default": "hacker",
