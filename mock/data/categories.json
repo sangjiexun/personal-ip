@@ -1,65 +1,5 @@
 [
  {
-  "id": 2,
-  "ttid": 2,
-  "name": "专题",
-  "slug": "special",
-  "color": "#f0a202",
-  "description": "",
-  "count": 4,
-  "theme": "influencer"
- },
- {
-  "id": 6,
-  "ttid": 6,
-  "name": "健身",
-  "slug": "fitness-news",
-  "color": "#41b06e",
-  "description": "",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 10,
-  "ttid": 10,
-  "name": "小视频",
-  "slug": "video",
-  "color": "#7a5cf0",
-  "description": "",
-  "count": 3,
-  "theme": "influencer"
- },
- {
-  "id": 17,
-  "ttid": 17,
-  "name": "博客",
-  "slug": "blog",
-  "color": "#e8506e",
-  "description": "",
-  "count": 14,
-  "theme": "influencer"
- },
- {
-  "id": 22,
-  "ttid": 22,
-  "name": "资讯",
-  "slug": "news",
-  "color": "#3d8bfd",
-  "description": "",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 25,
-  "ttid": 25,
-  "name": "投稿",
-  "slug": "sub-news",
-  "color": "#2fb5a4",
-  "description": "",
-  "count": 28,
-  "theme": "influencer"
- },
- {
   "id": 101,
   "name": "技术",
   "slug": "tech",
@@ -98,5 +38,65 @@
   "color": "#ff9f0a",
   "theme": "hacker",
   "count": 2
+ },
+ {
+  "id": 2,
+  "ttid": 2,
+  "name": "金融网红",
+  "slug": "fin-kol",
+  "color": "#e8506e",
+  "description": "金融行业网红博主与意见领袖",
+  "theme": "influencer",
+  "count": 6
+ },
+ {
+  "id": 6,
+  "ttid": 6,
+  "name": "网红排行",
+  "slug": "red-list",
+  "color": "#f0a202",
+  "description": "网红影响力与热度排行",
+  "theme": "influencer",
+  "count": 5
+ },
+ {
+  "id": 10,
+  "ttid": 10,
+  "name": "网红信息",
+  "slug": "kol-info",
+  "color": "#7a5cf0",
+  "description": "网红个人资料与动态",
+  "theme": "influencer",
+  "count": 8
+ },
+ {
+  "id": 17,
+  "ttid": 17,
+  "name": "行业属性",
+  "slug": "industry",
+  "color": "#3d8bfd",
+  "description": "网红所属行业与机构属性",
+  "theme": "influencer",
+  "count": 9
+ },
+ {
+  "id": 22,
+  "ttid": 22,
+  "name": "金融资讯",
+  "slug": "fin-news",
+  "color": "#41b06e",
+  "description": "金融行业资讯与趋势",
+  "theme": "influencer",
+  "count": 2
+ },
+ {
+  "id": 25,
+  "ttid": 25,
+  "name": "生活风格",
+  "slug": "lifestyle",
+  "color": "#2fb5a4",
+  "description": "网红生活方式与个人品牌",
+  "theme": "influencer",
+  "count": 1
  }
 ]

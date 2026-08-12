@@ -83,6 +83,18 @@
     return a.thumbnail || 'assets/theme/images/3x2.png';
   }
 
+  // ---------- 分页参数（hash 路由：#page=2） ----------
+  function hashPage() {
+    var m = (location.hash || '').match(/[#&]page=(\d+)/);
+    return m ? parseInt(m[1]) || 1 : 1;
+  }
+  function pagUrl(page) {
+    var base = location.pathname.split('/').pop() || 'index.html';
+    // 去掉可能残留的 #page= 旧 hash，保留 search 参数
+    var s = (location.search || '').split('#')[0];
+    return base + s + '#page=' + page;
+  }
+
   // ---------- 渲染：站点头 ----------
   function renderHeader(site) {
     var branding = document.querySelector('#header .site-branding');
@@ -233,10 +245,11 @@
 
   // ---------- 首页渲染 ----------
   function renderHome() {
+    var page = hashPage();
     Promise.all([
       api.get('/api/site'),
       api.get('/api/articles/featured?theme=' + currentTheme),
-      api.get('/api/articles?page=1&size=9&theme=' + currentTheme),
+      api.get('/api/articles?page=' + page + '&size=9&theme=' + currentTheme),
       api.get('/api/categories')
     ]).then(function (results) {
       var site = results[0], featured = results[1], list = results[2], cats = results[3];
@@ -281,7 +294,7 @@
       if (pag && list.pages > 1) {
         var html = '';
         for (var i = 1; i <= list.pages; i++) {
-          html += '<a href="index.html?page=' + i + '" class="' + (i === list.page ? 'active' : '') + '">' + i + '</a>';
+          html += '<a href="' + pagUrl(i) + '" class="' + (i === list.page ? 'active' : '') + '">' + i + '</a>';
         }
         pag.innerHTML = html;
       }
@@ -359,7 +372,7 @@
     var params = new URLSearchParams(location.search);
     var slug = params.get('slug');
     var q = params.get('q');
-    var page = parseInt(params.get('page')) || 1;
+    var page = hashPage();
     Promise.all([
       api.get('/api/site'),
       api.get('/api/categories')
@@ -388,13 +401,9 @@
         if (grid) grid.innerHTML = r.items.length ? r.items.map(articleCard).join('') : '<div class="empty">暂无内容</div>';
         var pag = document.querySelector('#pagination');
         if (pag && r.pages > 1) {
-          var base = location.pathname + '?', bp = [];
-          if (kind === 'category') bp.push('slug=' + slug);
-          if (kind === 'tag') bp.push('slug=' + slug);
-          if (kind === 'search') bp.push('q=' + encodeURIComponent(q));
           var html = '';
           for (var i = 1; i <= r.pages; i++) {
-            html += '<a href="' + base + bp.join('&') + (bp.length ? '&' : '') + 'page=' + i + '" class="' + (i === r.page ? 'active' : '') + '">' + i + '</a>';
+            html += '<a href="' + pagUrl(i) + '" class="' + (i === r.page ? 'active' : '') + '">' + i + '</a>';
           }
           pag.innerHTML = html;
         }
@@ -443,6 +452,15 @@
 
   global.App = { route: route, setTheme: applyTheme };
   document.addEventListener('DOMContentLoaded', route);
+
+  // hash 变化（分页翻页）→ 无刷新重渲染当前页
+  window.addEventListener('hashchange', function () {
+    var path = location.pathname.split('/').pop() || 'index.html';
+    if (path === '' || path === 'index.html') return renderHome();
+    if (path === 'category.html' || path === 'tag.html') return renderList(path === 'category.html' ? 'category' : 'tag');
+    if (path === 'search.html') return renderList('search');
+    window.scrollTo(0, 0);
+  });
 
   // 吸顶 header：滚动超过 8px 加 sticky 类（毛玻璃）
   function onScroll() {

@@ -1,125 +1,5 @@
 [
  {
-  "id": 11,
-  "ttid": 11,
-  "name": "复古",
-  "slug": "class",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 12,
-  "ttid": 12,
-  "name": "健身",
-  "slug": "fitness",
-  "count": 2,
-  "theme": "influencer"
- },
- {
-  "id": 13,
-  "ttid": 13,
-  "name": "运动",
-  "slug": "sport",
-  "count": 4,
-  "theme": "influencer"
- },
- {
-  "id": 28,
-  "ttid": 28,
-  "name": "OL风",
-  "slug": "ol",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 31,
-  "ttid": 31,
-  "name": "美妆",
-  "slug": "makeup",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 48,
-  "ttid": 48,
-  "name": "古装",
-  "slug": "guzhuang",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 49,
-  "ttid": 49,
-  "name": "许多语儿",
-  "slug": "xuduoyuer",
-  "count": 3,
-  "theme": "influencer"
- },
- {
-  "id": 50,
-  "ttid": 50,
-  "name": "特技",
-  "slug": "teji",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 51,
-  "ttid": 51,
-  "name": "魔术",
-  "slug": "moshu",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 52,
-  "ttid": 52,
-  "name": "制服控",
-  "slug": "zhifukong",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 53,
-  "ttid": 53,
-  "name": "吃货",
-  "slug": "chihuo",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 54,
-  "ttid": 54,
-  "name": "网红食品",
-  "slug": "wanghongshipin",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 55,
-  "ttid": 55,
-  "name": "减脂可乐",
-  "slug": "jianzhikele",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 56,
-  "ttid": 56,
-  "name": "动漫",
-  "slug": "dongman",
-  "count": 1,
-  "theme": "influencer"
- },
- {
-  "id": 57,
-  "ttid": 57,
-  "name": "游戏",
-  "slug": "youxi",
-  "count": 1,
-  "theme": "influencer"
- },
- {
   "id": 201,
   "name": "Python",
   "slug": "python",
@@ -209,5 +89,125 @@
   "slug": "dotfiles",
   "theme": "hacker",
   "count": 1
+ },
+ {
+  "id": 11,
+  "ttid": 11,
+  "name": "基金",
+  "slug": "fund",
+  "theme": "influencer",
+  "count": 5
+ },
+ {
+  "id": 12,
+  "ttid": 12,
+  "name": "券商",
+  "slug": "broker",
+  "theme": "influencer",
+  "count": 2
+ },
+ {
+  "id": 13,
+  "ttid": 13,
+  "name": "银行",
+  "slug": "bank",
+  "theme": "influencer",
+  "count": 5
+ },
+ {
+  "id": 28,
+  "ttid": 28,
+  "name": "保险",
+  "slug": "insurance",
+  "theme": "influencer",
+  "count": 3
+ },
+ {
+  "id": 31,
+  "ttid": 31,
+  "name": "量化投资",
+  "slug": "quant",
+  "theme": "influencer",
+  "count": 1
+ },
+ {
+  "id": 48,
+  "ttid": 48,
+  "name": "宏观经济",
+  "slug": "macro",
+  "theme": "influencer",
+  "count": 2
+ },
+ {
+  "id": 49,
+  "ttid": 49,
+  "name": "A股",
+  "slug": "ashare",
+  "theme": "influencer",
+  "count": 3
+ },
+ {
+  "id": 50,
+  "ttid": 50,
+  "name": "港股",
+  "slug": "hkstock",
+  "theme": "influencer",
+  "count": 2
+ },
+ {
+  "id": 51,
+  "ttid": 51,
+  "name": "美股",
+  "slug": "usstock",
+  "theme": "influencer",
+  "count": 2
+ },
+ {
+  "id": 52,
+  "ttid": 52,
+  "name": "理财师",
+  "slug": "planner",
+  "theme": "influencer",
+  "count": 4
+ },
+ {
+  "id": 53,
+  "ttid": 53,
+  "name": "财经博主",
+  "slug": "fin-blogger",
+  "theme": "influencer",
+  "count": 9
+ },
+ {
+  "id": 54,
+  "ttid": 54,
+  "name": "分析师",
+  "slug": "analyst",
+  "theme": "influencer",
+  "count": 6
+ },
+ {
+  "id": 55,
+  "ttid": 55,
+  "name": "基金经理",
+  "slug": "fund-mgr",
+  "theme": "influencer",
+  "count": 5
+ },
+ {
+  "id": 56,
+  "ttid": 56,
+  "name": "投顾",
+  "slug": "advisor",
+  "theme": "influencer",
+  "count": 4
+ },
+ {
+  "id": 57,
+  "ttid": 57,
+  "name": "个人IP",
+  "slug": "personal-ip",
+  "theme": "influencer",
+  "count": 9
  }
 ]
