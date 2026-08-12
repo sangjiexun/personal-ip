@@ -93,121 +93,105 @@
  {
   "id": 11,
   "ttid": 11,
-  "name": "基金",
-  "slug": "fund",
+  "name": "迪丽热巴",
+  "slug": "dilireba",
   "theme": "influencer",
-  "count": 5
+  "count": 30
  },
  {
   "id": 12,
   "ttid": 12,
-  "name": "券商",
-  "slug": "broker",
+  "name": "影视剧",
+  "slug": "tv-drama",
   "theme": "influencer",
-  "count": 2
+  "count": 9
  },
  {
   "id": 13,
   "ttid": 13,
-  "name": "银行",
-  "slug": "bank",
+  "name": "红毯",
+  "slug": "red-carpet",
   "theme": "influencer",
-  "count": 5
+  "count": 3
  },
  {
   "id": 28,
   "ttid": 28,
-  "name": "保险",
-  "slug": "insurance",
+  "name": "时尚",
+  "slug": "fashion",
   "theme": "influencer",
-  "count": 3
+  "count": 9
  },
  {
   "id": 31,
   "ttid": 31,
-  "name": "量化投资",
-  "slug": "quant",
-  "theme": "influencer",
-  "count": 1
- },
- {
-  "id": 48,
-  "ttid": 48,
-  "name": "宏观经济",
-  "slug": "macro",
-  "theme": "influencer",
-  "count": 2
- },
- {
-  "id": 49,
-  "ttid": 49,
-  "name": "A股",
-  "slug": "ashare",
-  "theme": "influencer",
-  "count": 3
- },
- {
-  "id": 50,
-  "ttid": 50,
-  "name": "港股",
-  "slug": "hkstock",
-  "theme": "influencer",
-  "count": 2
- },
- {
-  "id": 51,
-  "ttid": 51,
-  "name": "美股",
-  "slug": "usstock",
-  "theme": "influencer",
-  "count": 2
- },
- {
-  "id": 52,
-  "ttid": 52,
-  "name": "理财师",
-  "slug": "planner",
-  "theme": "influencer",
-  "count": 4
- },
- {
-  "id": 53,
-  "ttid": 53,
-  "name": "财经博主",
-  "slug": "fin-blogger",
-  "theme": "influencer",
-  "count": 9
- },
- {
-  "id": 54,
-  "ttid": 54,
-  "name": "分析师",
-  "slug": "analyst",
+  "name": "品牌代言",
+  "slug": "endorsement",
   "theme": "influencer",
   "count": 6
  },
  {
-  "id": 55,
-  "ttid": 55,
-  "name": "基金经理",
-  "slug": "fund-mgr",
+  "id": 48,
+  "ttid": 48,
+  "name": "综艺",
+  "slug": "variety",
   "theme": "influencer",
-  "count": 5
+  "count": 3
  },
  {
-  "id": 56,
-  "ttid": 56,
-  "name": "投顾",
-  "slug": "advisor",
+  "id": 49,
+  "ttid": 49,
+  "name": "颁奖礼",
+  "slug": "awards",
   "theme": "influencer",
   "count": 4
  },
  {
-  "id": 57,
-  "ttid": 57,
-  "name": "个人IP",
-  "slug": "personal-ip",
+  "id": 50,
+  "ttid": 50,
+  "name": "杂志",
+  "slug": "magazine",
   "theme": "influencer",
-  "count": 9
+  "count": 3
+ },
+ {
+  "id": 51,
+  "ttid": 51,
+  "name": "公益",
+  "slug": "charity",
+  "theme": "influencer",
+  "count": 3
+ },
+ {
+  "id": 52,
+  "ttid": 52,
+  "name": "直播",
+  "slug": "live",
+  "theme": "influencer",
+  "count": 3
+ },
+ {
+  "id": 53,
+  "ttid": 53,
+  "name": "采访",
+  "slug": "interview",
+  "theme": "influencer",
+  "count": 6
+ },
+ {
+  "id": 54,
+  "ttid": 54,
+  "name": "造型",
+  "slug": "styling",
+  "theme": "influencer",
+  "count": 8
+ },
+ {
+  "id": 55,
+  "ttid": 55,
+  "name": "活动",
+  "slug": "events",
+  "theme": "influencer",
+  "count": 3
  }
 ]

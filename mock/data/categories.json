@@ -42,61 +42,61 @@
  {
   "id": 2,
   "ttid": 2,
-  "name": "金融网红",
-  "slug": "fin-kol",
+  "name": "影视",
+  "slug": "drama",
   "color": "#e8506e",
-  "description": "金融行业网红博主与意见领袖",
+  "description": "迪丽热巴影视作品与动态",
   "theme": "influencer",
-  "count": 6
+  "count": 5
  },
  {
   "id": 6,
   "ttid": 6,
-  "name": "网红排行",
-  "slug": "red-list",
+  "name": "时尚",
+  "slug": "fashion",
   "color": "#f0a202",
-  "description": "网红影响力与热度排行",
+  "description": "红毯造型与时尚活动",
   "theme": "influencer",
   "count": 5
  },
  {
   "id": 10,
   "ttid": 10,
-  "name": "网红信息",
-  "slug": "kol-info",
+  "name": "代言",
+  "slug": "endorse",
   "color": "#7a5cf0",
-  "description": "网红个人资料与动态",
+  "description": "品牌代言与合作",
   "theme": "influencer",
-  "count": 8
+  "count": 3
  },
  {
   "id": 17,
   "ttid": 17,
-  "name": "行业属性",
-  "slug": "industry",
+  "name": "活动",
+  "slug": "events",
   "color": "#3d8bfd",
-  "description": "网红所属行业与机构属性",
+  "description": "公开活动与行程",
   "theme": "influencer",
-  "count": 9
+  "count": 5
  },
  {
   "id": 22,
   "ttid": 22,
-  "name": "金融资讯",
-  "slug": "fin-news",
+  "name": "荣誉",
+  "slug": "honors",
   "color": "#41b06e",
-  "description": "金融行业资讯与趋势",
+  "description": "获奖与荣誉",
   "theme": "influencer",
-  "count": 2
+  "count": 4
  },
  {
   "id": 25,
   "ttid": 25,
-  "name": "生活风格",
-  "slug": "lifestyle",
+  "name": "资讯",
+  "slug": "news",
   "color": "#2fb5a4",
-  "description": "网红生活方式与个人品牌",
+  "description": "娱乐资讯与报道",
   "theme": "influencer",
-  "count": 1
+  "count": 8
  }
 ]
