@@ -1,10 +1,10 @@
 {
   "site": {
     "name": "sangjiexun",
-    "tagline": "developer · hacker · lifelong learner",
-    "description": "sangjiexun 的个人 IP 站 —— 开发者、极客、创作者。双主题（黑客 / 网红）可切换，纯静态 + Mock.js 数据后台。",
+    "tagline": "OpenClaw · AI Agent · Knowledge Engineering",
+    "description": "sangjiexun 的个人技术品牌站——专注 OpenClaw、AI Agent、知识工程、全栈产品与自动化工作流。",
     "logo": "",
-    "copyright": "© 2026 sangjiexun · 个人 IP 站 · 静态演示版",
+    "copyright": "© 2026 sangjiexun · OpenClaw AI Builder",
     "postsPerPage": 9,
     "social": [
       {"name": "GitHub", "icon": "github", "url": "https://github.com/sangjiexun"},
@@ -41,6 +41,6 @@
     "name": "sangjiexun",
     "slug": "sangjiexun",
     "avatar": "",
-    "bio": "开发者 / 安全极客 / 终身学习者。喜欢把复杂系统拆成可运行的小模块，也喜欢把生活过成可分享的内容。这个站是我个人的 IP 实验田——黑客主题写技术，网红主题写生活。"
+    "bio": "AI 产品工程师 / 全栈开发者 / 知识架构实践者。专注 OpenClaw、AI Agent 与自动化系统，把复杂问题拆成可运行、可复用、可持续进化的产品能力。"
   }
 }

@@ -243,66 +243,126 @@
     });
   }
 
-  // ---------- 首页渲染 ----------
+  // ---------- 首页：OpenClaw 个人品牌 Landing Page ----------
+  function setupLandingReveal() {
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(items, function (item) { item.classList.add('is-visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    Array.prototype.forEach.call(items, function (item) { observer.observe(item); });
+  }
+
+  function landingArticleCard(a) {
+    var cat = a.categories[0] || { name: '技术' };
+    return '<a class="journal-card reveal" href="article.html?id=' + a.id + '">' +
+      '<div class="journal-meta">' + esc(cat.name) + ' · ' + fmtDate(a.date) + '</div>' +
+      '<h3>' + esc(a.title) + '</h3>' +
+      '<p>' + esc(a.excerpt).slice(0, 82) + '…</p>' +
+      '<span class="journal-arrow">阅读笔记 →</span>' +
+    '</a>';
+  }
+
   function renderHome() {
-    var page = hashPage();
     Promise.all([
       api.get('/api/site'),
-      api.get('/api/articles/featured?theme=' + currentTheme),
-      api.get('/api/articles?page=' + page + '&size=9&theme=' + currentTheme),
-      api.get('/api/categories')
+      api.get('/api/articles?page=1&size=3&theme=hacker')
     ]).then(function (results) {
-      var site = results[0], featured = results[1], list = results[2], cats = results[3];
+      var site = results[0], articles = results[1];
       renderHeader(site);
       renderFooter(site);
+      document.title = 'sangjiexun · OpenClaw AI Builder';
 
-      var themeCats = cats.filter(function (c) { return c.theme === currentTheme; });
-      var catBar = document.querySelector('#category-bar');
-      if (catBar) {
-        catBar.innerHTML = themeCats.map(function (c) {
-          return '<a href="category.html?slug=' + c.slug + '"><span class="cat-dot" style="background:' + c.color + '"></span>' +
-            esc(c.name) + '<span class="cat-num">' + c.count + '</span></a>';
-        }).join('');
+      var nav = document.querySelector('#header .main-nav ul');
+      if (nav) {
+        nav.innerHTML =
+          '<li><a href="#landing-capabilities">能力</a></li>' +
+          '<li><a href="#landing-projects">项目</a></li>' +
+          '<li><a href="#landing-method">方法</a></li>' +
+          '<li><a href="category.html">文章</a></li>' +
+          '<li><a href="#landing-contact">联系</a></li>';
       }
 
-      var hero = document.querySelector('#hero');
-      if (hero && featured.length) {
-        var f = featured[0];
-        hero.style.backgroundImage = 'url(' + thumb(f, '600x448') + ')';
-        var promptHtml = '';
-        if (currentTheme === 'hacker') {
-          var p = (site.site.themes && site.site.themes.hacker && site.site.themes.hacker.prompt) || 'user@ip:~$';
-          promptHtml = '<div class="hero-prompt">' + esc(p) + '<span class="cursor"></span></div>';
-        }
-        hero.innerHTML =
-          '<div class="hero-overlay"><div class="container"><div class="hero-content">' +
-            promptHtml +
-            (f.categories[0] ? '<a class="hero-cat" href="category.html?slug=' + f.categories[0].slug + '" style="background:' + f.categories[0].color + '">' + esc(f.categories[0].name) + '</a>' : '') +
-            '<h1 class="hero-title"><a href="article.html?id=' + f.id + '">' + esc(f.title) + '</a></h1>' +
-            '<div class="hero-meta"><span><i class="fa fa-clock-o"></i> ' + fmtDate(f.date) + '</span>' +
-              '<span><i class="fa fa-eye"></i> ' + fmtNum(f.views) + '</span>' +
-              '<span><i class="fa fa-heart"></i> ' + fmtNum(f.likes) + '</span></div>' +
-            '<p class="hero-excerpt">' + esc(f.excerpt).slice(0, 120) + '…</p>' +
-            '<a class="hero-btn" href="article.html?id=' + f.id + '">阅读全文 <i class="fa fa-angle-right"></i></a>' +
-          '</div></div></div>';
-      }
+      var hero = document.querySelector('#landing-hero');
+      if (hero) hero.innerHTML =
+        '<div class="container hero-shell">' +
+          '<div class="hero-copy reveal">' +
+            '<div class="eyebrow"><span class="eyebrow-dot"></span> OPENCLAW · AI BUILDER</div>' +
+            '<h1>把 AI 装进<span class="gradient">真实工作流</span></h1>' +
+            '<p class="hero-lead">我是 <strong>sangjiexun</strong>，专注 AI Agent、知识工程与产品自动化。把复杂系统拆成可运行、可复用、可持续进化的智能体能力。</p>' +
+            '<div class="hero-actions">' +
+              '<a class="claw-btn primary" href="#landing-projects">探索代表项目 <span>↘</span></a>' +
+              '<a class="claw-btn secondary" href="https://github.com/sangjiexun" target="_blank"><i class="fa fa-github"></i> GitHub Profile</a>' +
+            '</div>' +
+            '<div class="hero-proof"><span><i>●</i> AI Agent Systems</span><span><i>●</i> Product Engineering</span><span><i>●</i> Knowledge Architecture</span></div>' +
+          '</div>' +
+          '<div class="hero-visual reveal">' +
+            '<div class="hero-image-frame"><img src="assets/theme/images/landing/openclaw-hero.png" alt="OpenClaw 龙虾 AI 助手主视觉"></div>' +
+            '<div class="float-card status"><div class="card-label"><span>AGENT STATUS</span><span class="signal"></span></div><div class="big">ONLINE</div><div class="sub">OpenClaw node · China</div></div>' +
+            '<div class="float-card code"><div><span class="cool">agent</span>.<span class="hot">execute</span>({</div><div>&nbsp;&nbsp;context: <span class="hot">"real-world"</span>,</div><div>&nbsp;&nbsp;loop: <span class="cool">"evolve"</span></div><div>});</div></div>' +
+          '</div>' +
+        '</div>';
 
-      var grid = document.querySelector('#article-grid');
-      if (grid) grid.innerHTML = list.items.map(articleCard).join('');
+      var capabilities = document.querySelector('#landing-capabilities');
+      if (capabilities) capabilities.innerHTML =
+        '<div class="container">' +
+          '<div class="section-head reveal"><div><div class="section-kicker">01 / CAPABILITIES</div><h2>从想法到运行系统</h2></div><p>不止是写代码，而是把模型、工具、数据、知识和界面编排成可交付的完整产品。</p></div>' +
+          '<div class="capability-grid">' +
+            '<article class="cap-card reveal"><span class="cap-index">01</span><div class="cap-icon"><i class="fa fa-cubes"></i></div><h3>AI Agent 工程</h3><p>围绕 OpenClaw、MCP、Skill 与多智能体编排，构建能调用工具、持续执行并产生真实结果的 Agent 系统。</p><div class="cap-tags"><span>OpenClaw</span><span>MCP</span><span>Multi-Agent</span><span>Tool Use</span></div></article>' +
+            '<article class="cap-card reveal"><span class="cap-index">02</span><div class="cap-icon"><i class="fa fa-code"></i></div><h3>全栈产品构建</h3><p>以 Nuxt、Python、Node.js 与现代前端完成从原型、数据层到部署的端到端产品开发。</p><div class="cap-tags"><span>Nuxt</span><span>Python</span><span>Node.js</span></div></article>' +
+            '<article class="cap-card reveal"><span class="cap-index">03</span><div class="cap-icon"><i class="fa fa-database"></i></div><h3>知识与数据系统</h3><p>通过 Obsidian、Neo4j、RAG 与结构化工作流，把碎片信息沉淀为可检索、可关联、可复用的知识资产。</p><div class="cap-tags"><span>Neo4j</span><span>RAG</span><span>Obsidian</span></div></article>' +
+            '<article class="cap-card reveal"><span class="cap-index">04</span><div class="cap-icon"><i class="fa fa-line-chart"></i></div><h3>金融与内容智能</h3><p>将公开数据、量化规则、舆情聚合和 LLM 增强结合，服务于市场研究、内容雷达和信息决策。</p><div class="cap-tags"><span>Market Data</span><span>LLM</span><span>Visualization</span><span>Automation</span></div></article>' +
+          '</div>' +
+        '</div>';
 
-      var pag = document.querySelector('#pagination');
-      if (pag && list.pages > 1) {
-        var html = '';
-        for (var i = 1; i <= list.pages; i++) {
-          html += '<a href="' + pagUrl(i) + '" class="' + (i === list.page ? 'active' : '') + '">' + i + '</a>';
-        }
-        pag.innerHTML = html;
-      }
-      return renderSidebar();
+      var projects = document.querySelector('#landing-projects');
+      if (projects) projects.innerHTML =
+        '<div class="container">' +
+          '<div class="section-head reveal"><div><div class="section-kicker">02 / SELECTED BUILDS</div><h2>正在生长的产品</h2></div><p>选择真正代表方法与方向的作品。每个项目都是一次“需求—系统—反馈—进化”的完整循环。</p></div>' +
+          '<div class="project-grid">' +
+            '<article class="project-card featured reveal"><div class="project-bg"></div><div class="project-visual"><div class="project-orb"></div></div><div class="project-content"><span class="project-type">PERSONAL AI · OPEN SOURCE</span><h3>OpenClaw<br>龙虾式个人 AI</h3><p>跨平台个人 AI 助手生态：让模型接入工具、知识与真实环境，成为可持续工作的数字伙伴。</p><a class="project-link" href="https://github.com/sangjiexun/openclaw" target="_blank">查看 OpenClaw →</a></div></article>' +
+            '<article class="project-card reveal"><div class="project-bg"></div><div class="project-visual"><div class="project-orb"></div></div><div class="project-content"><span class="project-type">VOICE AI · NUxt 4</span><h3>随声 AI</h3><p>语音克隆、合成与播报工具，把声音能力封装成易用的 Web 产品。</p><a class="project-link" href="https://github.com/sangjiexun/suisheng-ai" target="_blank">进入项目 →</a></div></article>' +
+            '<article class="project-card reveal"><div class="project-bg"></div><div class="project-visual"><div class="project-orb"></div></div><div class="project-content"><span class="project-type">MARKET INTELLIGENCE</span><h3>openAGu</h3><p>A 股行业大盘监控与绩优股多维评分，连接数据、规则与可视化决策。</p><a class="project-link" href="https://github.com/sangjiexun/openAGu" target="_blank">进入项目 →</a></div></article>' +
+          '</div>' +
+        '</div>';
+
+      var method = document.querySelector('#landing-method');
+      if (method) method.innerHTML =
+        '<div class="container method-shell">' +
+          '<div class="method-copy reveal"><div class="section-kicker">03 / OPERATING SYSTEM</div><h2>生态思维，<br>工程落地</h2><p>把人、目标、工具、环境和反馈视为同一个生态系统。先定位关键约束，再让方案在真实环境中小步运行、持续校正。</p><a class="project-link" href="about.html">了解我的思考方式 →</a></div>' +
+          '<div class="method-list">' +
+            '<article class="method-item reveal"><span class="method-num">01</span><div><h3>Context / 看见全局</h3><p>理解目标、角色、边界、数据与环境，避免局部最优。</p></div></article>' +
+            '<article class="method-item reveal"><span class="method-num">02</span><div><h3>Build / 做出闭环</h3><p>以最小可运行系统连接输入、处理、输出和验证。</p></div></article>' +
+            '<article class="method-item reveal"><span class="method-num">03</span><div><h3>Evolve / 用反馈进化</h3><p>记录真实结果，把有效经验沉淀为 Skill、数据与长期知识。</p></div></article>' +
+          '</div>' +
+        '</div>';
+
+      var journal = document.querySelector('#landing-journal');
+      if (journal) journal.innerHTML =
+        '<div class="container"><div class="section-head reveal"><div><div class="section-kicker">04 / FIELD NOTES</div><h2>实践笔记</h2></div><p>记录工具、工程与系统思考。文章不是终点，而是可复用经验的公开索引。</p></div>' +
+        '<div class="journal-grid">' + (articles.items || []).map(landingArticleCard).join('') + '</div></div>';
+
+      var contact = document.querySelector('#landing-contact');
+      if (contact) contact.innerHTML =
+        '<div class="container"><div class="contact-panel reveal"><div class="section-kicker">05 / CONNECT</div><h2>让下一个想法<br>真正上线</h2><p>欢迎交流 AI Agent、OpenClaw、知识工程、个人产品与自动化系统。复杂问题，适合从一段清晰的对话开始。</p><div class="contact-actions">' +
+          '<a class="claw-btn primary" href="mailto:' + esc(site.site.contact.email) + '"><i class="fa fa-envelope"></i> ' + esc(site.site.contact.email) + '</a>' +
+          '<a class="claw-btn secondary" href="https://github.com/sangjiexun" target="_blank"><i class="fa fa-github"></i> GitHub</a>' +
+          '<span class="claw-btn secondary"><i class="fa fa-weixin"></i> 微信 ' + esc(site.site.contact.wechat) + '</span>' +
+        '</div></div></div>';
+
+      setupLandingReveal();
     }).catch(function (e) {
       console.error(e);
-      var g = document.querySelector('#article-grid');
-      if (g) g.innerHTML = '<div class="alert">数据加载失败：' + esc(e.message) + '</div>';
+      var home = document.querySelector('#home-landing');
+      if (home) home.innerHTML = '<div class="container section-pad"><div class="alert">页面加载失败：' + esc(e.message) + '</div></div>';
     });
   }
 
