@@ -16,6 +16,9 @@
   overflow-x: hidden;
 }
 
+/* Home page hides footer (CTA section is the closing) */
+.page-home #footer { display: none; }
+
 .page-home::before {
   content: "";
   position: fixed;
