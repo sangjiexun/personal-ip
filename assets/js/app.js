@@ -294,7 +294,7 @@
       var hero = document.querySelector('#landing-hero');
       if (hero) hero.innerHTML =
         '<div class="container hero-shell">' +
-          '<div class="hero-copy reveal">' +
+          '<div class="hero-copy">' +
             '<div class="eyebrow"><span class="eyebrow-dot"></span> OPENCLAW · AI BUILDER</div>' +
             '<h1>把 AI 装进<span class="gradient">真实工作流</span></h1>' +
             '<p class="hero-lead">我是 <strong>sangjiexun</strong>，专注 AI Agent、知识工程与产品自动化。把复杂系统拆成可运行、可复用、可持续进化的智能体能力。</p>' +
@@ -304,7 +304,7 @@
             '</div>' +
             '<div class="hero-proof"><span><i>●</i> AI Agent Systems</span><span><i>●</i> Product Engineering</span><span><i>●</i> Knowledge Architecture</span></div>' +
           '</div>' +
-          '<div class="hero-visual reveal">' +
+          '<div class="hero-visual">' +
             '<div class="hero-image-frame"><img src="assets/theme/images/landing/openclaw-hero.png" alt="OpenClaw 龙虾 AI 助手主视觉"></div>' +
             '<div class="float-card status"><div class="card-label"><span>AGENT STATUS</span><span class="signal"></span></div><div class="big">ONLINE</div><div class="sub">OpenClaw node · China</div></div>' +
             '<div class="float-card code"><div><span class="cool">agent</span>.<span class="hot">execute</span>({</div><div>&nbsp;&nbsp;context: <span class="hot">"real-world"</span>,</div><div>&nbsp;&nbsp;loop: <span class="cool">"evolve"</span></div><div>});</div></div>' +
